@@ -20,12 +20,8 @@ for (int i = 0; i < cislo1; i++)
     for (int c = 0; c < cislo1; c++)
     {
         Pole[i,c] = rnd.Next(10);
-        
-        if (Pole[i,c]>=0)
-        {
-            Pole1D[index] = Pole[i, c];
-            index++;
-        }      
+        Pole1D[index] = Pole[i, c];
+        index++;   
     }
 }
 
