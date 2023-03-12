@@ -79,7 +79,7 @@ int priemer = 0 , suma = 0;
 
 for (int i = 0; i < cislo1; i++)
 {
-    for (int c= 0; c < cislo1; c++)
+    for (int c = 0; c < cislo1; c++)
     {
         priemer += SortedArray[i, c];
         if (i == c)
