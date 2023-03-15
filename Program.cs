@@ -11,7 +11,8 @@ do
 
 int[,] Pole = new int[cislo1,cislo2];
 int[] Pole1D = new int[cislo1*cislo2];
-int index = 0;
+int[,] SortedArray = new int[cislo1, cislo2];
+int index = 0, priemer = 0 , suma = 0, PrvokPola = 0;
 
 //Vytvorenie hodnôt 2D poľa + zlúčenie do 1D poľa
 
@@ -21,17 +22,9 @@ for (int i = 0; i < cislo1; i++)
     {
         Pole[i,c] = rnd.Next(10);
         Pole1D[index] = Pole[i, c];
-        index++;    
-    }
-}
+        index++;
 
-//Výpis 2D poľa
-
-for (int i = 0; i < cislo1; i++)
-{
-    for (int c = 0; c < cislo1; c++)
-    {
-        Console.Write(Pole[i,c] + " ");
+        Console.Write(Pole[i, c] + " ");
     }
     Console.WriteLine();
 }
@@ -49,9 +42,6 @@ for (int i = 0; i < Pole.Length; i++)
 }
 Console.WriteLine("\n");
 
-int[,] SortedArray = new int[cislo1, cislo2];
-int PrvokPola = 0;
-
 //Vpísanie zoradených hodnôt do 2D poľa
 
 for (int i = 0; i < cislo1; i++)
@@ -62,36 +52,19 @@ for (int i = 0; i < cislo1; i++)
         {
             SortedArray[i, c] = Pole1D[PrvokPola];
         }
-        PrvokPola++;       
-    }
-}
+        PrvokPola++;
 
-//Výpis 2D poľa
+        priemer += SortedArray[i, c]; //sčítavanie prvkov zoradeného poľa
+        if (i == c)
+        {
+            suma += SortedArray[i, c]; //sčítavanie prvkov poľa na hlavnej diagonále
+        }
 
-for (int i = 0; i < cislo1; i++)
-{
-    for (int c = 0; c < cislo2; c++)
-    {
-        Console.Write(SortedArray[i,c]+" ");
+        Console.Write(SortedArray[i, c] + " ");
     }
     Console.WriteLine();
 }
-
 Console.WriteLine();
-
-int priemer = 0 , suma = 0;
-
-for (int i = 0; i < cislo1; i++)
-{
-    for (int c= 0; c < cislo1; c++)
-    {
-        priemer += SortedArray[i, c];
-        if (i == c)
-        {
-            suma += SortedArray[i, c];
-        }
-    }   
-}
 
 //Výpis funkcii
 
@@ -100,7 +73,6 @@ Console.WriteLine("Najväčšie je : " + Pole1D[Pole1D.Length-1]);
 Console.WriteLine("Suma je : " + suma);
 Console.WriteLine("Súčet pola je : " + priemer);
 Console.WriteLine("Aritmetický priemer je : " + Convert.ToDouble(priemer) / (cislo2 * cislo1));
-
 
 //Sorting metóda
 
