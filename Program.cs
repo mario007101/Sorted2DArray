@@ -7,7 +7,7 @@ do
 {
    cislo1 = rnd.Next(2,10); //Min. matica musí byť aspoň 2x2
    cislo2 = rnd.Next(2,10); 
-}while (cislo1 != cislo2);
+} while (cislo1 != cislo2);
 
 int[,] Pole = new int[cislo1,cislo2];
 int[] Pole1D = new int[cislo1*cislo2];
